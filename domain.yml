@@ -1,0 +1,190 @@
+version: '2.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: false
+intents:
+- greet
+- restaurant_search
+- email_input
+- affirm
+- deny
+- geosearch
+- random_conversation
+- thanks
+- goodbye
+- stop
+- send_mail
+- intro
+- relationship
+entities:
+- budget
+- country
+- cuisine
+- day
+- disease
+- event
+- genre
+- location
+- mail_id
+- mealtype
+- people
+- person
+- price_lowerbound
+- price_upperbound
+- product
+- rating
+slots:
+  cuisine:
+    type: categorical
+    influence_conversation: true
+    values:
+    - american
+    - mexican
+    - chinese
+    - italian
+    - north_indian
+    - south_indian
+  location:
+    type: text
+    influence_conversation: true
+  valid_location:
+    type: categorical
+    influence_conversation: true
+    values:
+    - not_found
+    - not_operable
+    - found
+  budget:
+    type: categorical
+    influence_conversation: true
+    values:
+    - mid
+    - low
+    - high
+  price_lowerbound:
+    type: float
+    influence_conversation: true
+    max_value: 1.0
+    min_value: 0.0
+  price_upperbound:
+    type: float
+    influence_conversation: true
+    max_value: 1.0
+    min_value: 0.0
+  mealtype:
+    type: categorical
+    influence_conversation: true
+    values:
+    - lunch
+    - dinner
+    - breakfast
+  rating:
+    type: float
+    influence_conversation: true
+    max_value: 5.0
+    min_value: 1.0
+  people:
+    type: text
+    influence_conversation: true
+  mail_id:
+    type: text
+    influence_conversation: true
+  restaurant_found:
+    type: bool
+    influence_conversation: true
+responses:
+  utter_ask_cuisine:
+  - buttons:
+    - payload: Chinese
+      title: Chinese
+    - payload: Italian
+      title: Italian
+    - payload: South Indian
+      title: South Indian
+    - payload: North Indian
+      title: North Indian
+    - payload: American
+      title: American
+    - payload: Mexican
+      title: Mexican
+    text: what kind of cuisine would you like?
+  utter_ask_howcanhelp:
+  - text: how can I help you?
+  utter_ask_location:
+  - text: At what location?
+  utter_ask_budget_pref:
+  - text: Do you have any budget in preference?
+  utter_ask_budget:
+  - buttons:
+    - payload: low
+      title: Lesser than Rs. 300
+    - payload: mid
+      title: Rs. 300 to 700
+    - payload: high
+      title: More than 700
+    text: Please specify the budget
+  utter_default:
+  - text: I cannot understand
+  - text: Sorry I did not get that, will you please repeat ?
+  utter_goodbye:
+  - text: Goodbye
+  - text: Bye-bye
+  utter_greet:
+  - text: Hey there! How may i help you
+  - text: Hi, How can I help you!
+  - text: Hey, How is it going. How May I help you Today
+  utter_random_reply:
+  - text: I am not sure of that
+  - text: Sorry but I think we have to wait for that
+  - text: Sorry but I am not capable of that
+  - text: Uh uh! I am not a magician!
+  utter_intro:
+  - text: Well let's just say I want to become like you
+  - text: Oh I am Claire from Santa Cruz
+  - text: I am Claire. May I know your good name please
+  - text: I am actually a bot, name's Claire
+  utter_relationship:
+  - text: Nah! Not interested
+  - text: May be some other time
+  - text: Please don't mind but I will prefer a casual conversation
+  utter_geofence:
+  - text: I am sorry. To protect your privacy I will not access your current location
+  - text: Uh oh! I dont know where you are
+  - text: You seem to be out of my coverage area
+  utter_email_pref:
+  - text: Would you like to get the list of top restaurants on email?
+  utter_email_id:
+  - text: Please provide your email id.
+  - text: Can I get you email id please ?
+  - text: To what email id should I send it to ?
+  utter_notfound:
+  - text: Sorry, didn't match any such location, Can you please tell again ?
+  utter_not_operable:
+  - text: We dont operate in this area, Can you specify any other location ?
+  utter_rephrase:
+  - text: Can you please rephrase your input?
+  utter_invalid_email:
+  - text: Seems like you have entered an invalid email. Can you re-check that?
+  utter_max_invalid:
+  - text: You have passed the maximum number of invalid inputs
+actions:
+- action_check_location
+- action_search_restaurants
+- action_send_mail
+- utter_ask_budget
+- utter_ask_budget_pref
+- utter_ask_cuisine
+- utter_ask_howcanhelp
+- utter_ask_location
+- utter_default
+- utter_email_id
+- utter_email_pref
+- utter_geofence
+- utter_goodbye
+- utter_greet
+- utter_invalid_email
+- utter_max_invalid
+- utter_not_operable
+- utter_notfound
+- utter_random_reply
+- utter_rephrase

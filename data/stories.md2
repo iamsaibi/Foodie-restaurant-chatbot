@@ -1,0 +1,214 @@
+## with_budget_pref
+* greet
+	- utter_greet
+* restaurant_search
+	- utter_ask_location
+* restaurant_search{"location":"Delhi"}
+	- slot{"location":"Delhi"}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine":"Mexican"}
+    - slot{"cuisine":"Mexican"}
+    - utter_ask_budget_pref
+* affirm
+    - utter_ask_budget
+* restaurant_search{"budget":"mid"}
+    - slot{"budget":"mid"}
+	- action_search_restaurants
+	- utter_goodbye
+
+## without_budget_pref
+* greet
+	- utter_greet
+* restaurant_search
+	- utter_ask_location
+* restaurant_search{"location":"Delhi"}
+	- slot{"location":"Delhi"}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine":"Mexican"}
+    - slot{"cuisine":"Mexican"}
+    - utter_ask_budget_pref
+* deny
+	- action_search_restaurants
+	- utter_goodbye
+
+## with_predefined_location_without_budget_pref
+* greet
+	- utter_greet
+* restaurant_search{"location":"Delhi"}
+	- slot{"location":"Delhi"}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine":"Mexican"}
+    - slot{"cuisine":"Mexican"}
+    - utter_ask_budget_pref
+* deny
+	- action_search_restaurants
+	- utter_goodbye
+
+## with_predefined_location_with_budget_pref
+* greet
+	- utter_greet
+* restaurant_search{"location":"Delhi"}
+	- slot{"location":"Delhi"}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine":"Mexican"}
+    - slot{"cuisine":"Mexican"}
+    - utter_ask_budget_pref
+* affirm
+    - utter_ask_budget
+* restaurant_search{"budget":"mid"}
+    - slot{"budget":"mid"}
+	- action_search_restaurants
+	- utter_goodbye
+
+
+## with_budget_pref
+* restaurant_search
+	- utter_ask_location
+* restaurant_search{"location":"Delhi"}
+	- slot{"location":"Delhi"}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine":"Mexican"}`
+    - slot{"cuisine":"Mexican"}
+    - utter_ask_budget_pref
+* affirm
+    - utter_ask_budget
+* restaurant_search{"budget":"mid"}
+    - slot{"budget":"mid"}
+	- action_search_restaurants
+	- utter_goodbye
+
+## without_budget_pref
+* restaurant_search
+	- utter_ask_location
+* restaurant_search{"location":"Delhi"}
+	- slot{"location":"Delhi"}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine":"Mexican"}
+    - slot{"cuisine":"Mexican"}
+    - utter_ask_budget_pref
+* deny
+	- action_search_restaurants
+	- utter_goodbye
+
+## with_predefined_location_without_budget_pref
+* restaurant_search{"location":"Delhi"}
+	- slot{"location":"Delhi"}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine":"Mexican"}
+    - slot{"cuisine":"Mexican"}
+    - utter_ask_budget_pref
+* deny
+	- action_search_restaurants
+	- utter_goodbye
+
+## with_predefined_location_with_budget_pref
+* restaurant_search{"location":"Delhi"}
+	- slot{"location":"Delhi"}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine":"Mexican"}
+    - slot{"cuisine":"Mexican"}
+    - utter_ask_budget_pref
+* affirm
+    - utter_ask_budget
+* restaurant_search{"budget":"mid"}
+    - slot{"budget":"mid"}
+	- action_search_restaurants
+	- utter_goodbye
+
+
+## with_predefined_cuisine_without_budget_pref
+* restaurant_search{"cuisine":"Mexican"}
+    - slot{"cuisine":"Mexican"}
+    - utter_ask_location
+* restaurant_search{"location":"Delhi"}
+	- slot{"location":"Delhi"}
+    - utter_ask_budget_pref
+* deny
+	- action_search_restaurants
+	- utter_goodbye
+
+## with_predefined_cuisine_with_budget_pref
+* restaurant_search{"cuisine":"Mexican"}
+    - slot{"cuisine":"Mexican"}
+    - utter_ask_location
+* restaurant_search{"location":"Delhi"}
+	- slot{"location":"Delhi"}
+    - utter_ask_budget_pref
+* affirm
+    - utter_ask_budget
+* restaurant_search{"budget":"mid"}
+    - slot{"budget":"mid"}
+	- action_search_restaurants
+	- utter_goodbye
+
+## with_predefined_budget
+* restaurant_search{"budget":"low"}
+    - slot{"budget":"low"}
+    - utter_ask_location
+* restaurant_search{"location":"Delhi"}
+	- slot{"location":"Delhi"}
+* restaurant_search{"cuisine":"Mexican"}
+    - slot{"cuisine":"Mexican"}
+    - action_search_restaurants
+	- utter_goodbye
+
+## with_predefined_budget_and_location
+* restaurant_search{"budget":"low", "location":"Delhi"}
+    - slot{"budget":"low", "location":"Delhi"}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine":"Mexican"}
+    - slot{"cuisine":"Mexican"}
+    - action_search_restaurants
+	- utter_goodbye
+
+## with_predefined_budget_and_cuisine
+* restaurant_search{"budget":"low", "cuisine":"Mexican"}
+    - slot{"budget":"low", "cuisine":"Mexican"}
+    - utter_ask_location
+* restaurant_search{"location":"Delhi"}
+	- slot{"location":"Delhi"}
+    - action_search_restaurants
+	- utter_goodbye
+
+## with_predefined_budget_cuisine_and_location
+* restaurant_search{"budget":"low", "cuisine":"Mexican", "location":"Delhi"}
+    - slot{"budget":"low", "cuisine":"Mexican", "location":"Delhi"}
+    - action_search_restaurants
+	- utter_goodbye
+
+
+## with_predefined_budget
+* restaurant_search{"price_lowerbound":"300", "price_upperbound":"700"}
+    - slot{"price_lowerbound":"300", "price_upperbound":"700"}
+    - utter_ask_location
+* restaurant_search{"location":"Delhi"}
+	- slot{"location":"Delhi"}
+* restaurant_search{"cuisine":"Mexican"}
+    - slot{"cuisine":"Mexican"}
+    - action_search_restaurants
+	- utter_goodbye
+
+## with_predefined_budget_and_location
+* restaurant_search{"price_lowerbound":"300", "price_upperbound":"700", "location":"Delhi"}
+    - slot{"price_lowerbound":"300", "price_upperbound":"700", "location":"Delhi"}
+    - utter_ask_cuisine
+* restaurant_search{"cuisine":"Mexican"}
+    - slot{"cuisine":"Mexican"}
+    - action_search_restaurants
+	- utter_goodbye
+
+## with_predefined_budget_and_cuisine
+* restaurant_search{"price_lowerbound":"300", "price_upperbound":"700", "cuisine":"Mexican"}
+    - slot{"price_lowerbound":"300", "price_upperbound":"700", "cuisine":"Mexican"}
+    - utter_ask_location
+* restaurant_search{"location":"Delhi"}
+	- slot{"location":"Delhi"}
+    - action_search_restaurants
+	- utter_goodbye
+
+## with_predefined_budget_cuisine_and_location
+* restaurant_search{"price_lowerbound":"300", "price_upperbound":"700", "cuisine":"Mexican", "location":"Delhi"}
+    - slot{"price_lowerbound":"300", "price_upperbound":"700", "cuisine":"Mexican", "location":"Delhi"}
+    - action_search_restaurants
+	- utter_goodbye
+
